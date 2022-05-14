@@ -20,7 +20,7 @@ namespace WebApplication7SE2.Models
         {
             this.foods = new HashSet<food>();
         }
-    
+
         public int id { get; set; }
         [Display(Name = "Title")]
         public string title { get; set; }
@@ -30,7 +30,7 @@ namespace WebApplication7SE2.Models
         public string featured { get; set; }
         [Display(Name = "Active")]
         public string active { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<food> foods { get; set; }
     }

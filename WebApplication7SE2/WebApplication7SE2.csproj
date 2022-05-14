@@ -169,7 +169,6 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\addAdminController.cs" />
     <Compile Include="Controllers\addCategoryController.cs" />
     <Compile Include="Controllers\addFoodController.cs" />
@@ -182,7 +181,6 @@
     <Compile Include="Controllers\deleteOrderController.cs" />
     <Compile Include="Controllers\deleteUserController.cs" />
     <Compile Include="Controllers\foodShoppingController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\userHomeController.cs" />
     <Compile Include="Controllers\userLoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -298,19 +296,19 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.css" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\MainModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MainModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\MainModel.edmx.diagram">
-      <DependentUpon>MainModel.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="Models\userModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>userModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Models\userModel.edmx.diagram">
       <DependentUpon>userModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\MainModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MainModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MainModel.edmx.diagram">
+      <DependentUpon>MainModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -334,24 +332,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\addCategory\addCategory.cshtml" />
@@ -386,9 +366,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\foods\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

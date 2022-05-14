@@ -47,11 +47,7 @@
           <Property Name="qty" Type="int" />
           <Property Name="total" Type="decimal" Precision="10" Scale="0" />
           <Property Name="order_date" Type="datetime" />
-          <Property Name="status" Type="nvarchar" MaxLength="50" />
-          <Property Name="customer_name" Type="nvarchar" MaxLength="150" />
-          <Property Name="customer_contact" Type="nvarchar" MaxLength="50" />
-          <Property Name="customer_email" Type="nvarchar" MaxLength="150" />
-          <Property Name="customer_address" Type="nvarchar" MaxLength="255" />
+          <Property Name="image_name" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <Association Name="FK_food_ToCategory">
           <End Role="category" Type="Self.category" Multiplicity="0..1" />
@@ -124,11 +120,7 @@
           <Property Name="qty" Type="Int32" />
           <Property Name="total" Type="Decimal" Precision="10" Scale="0" />
           <Property Name="order_date" Type="DateTime" Precision="3" />
-          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="customer_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="customer_contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="customer_email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="customer_address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="image_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_food_ToCategory">
           <End Role="category" Type="Self.category" Multiplicity="0..1" />
@@ -202,11 +194,7 @@
                 <ScalarProperty Name="qty" ColumnName="qty" />
                 <ScalarProperty Name="total" ColumnName="total" />
                 <ScalarProperty Name="order_date" ColumnName="order_date" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="customer_name" ColumnName="customer_name" />
-                <ScalarProperty Name="customer_contact" ColumnName="customer_contact" />
-                <ScalarProperty Name="customer_email" ColumnName="customer_email" />
-                <ScalarProperty Name="customer_address" ColumnName="customer_address" />
+                <ScalarProperty Name="image_name" ColumnName="image_name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

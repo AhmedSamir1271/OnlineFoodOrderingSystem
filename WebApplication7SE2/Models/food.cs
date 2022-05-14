@@ -30,7 +30,7 @@ namespace WebApplication7SE2.Models
         public string featured { get; set; }
         [Display(Name = "Active")]
         public string active { get; set; }
-    
+
         public virtual category category { get; set; }
     }
 }
