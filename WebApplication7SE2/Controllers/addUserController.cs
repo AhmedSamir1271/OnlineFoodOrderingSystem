@@ -23,7 +23,12 @@ namespace WebApplication7SE2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult addUser([Bind(Include = "id,full_name,user_name,password")] user user)
         {
-            throw new NotImplementedException();
+            if (ModelState.IsValid)
+            {
+                db.users.Add(user);
+                db.SaveChanges();
+            }
+            return View(user);
         }
     }
 }
