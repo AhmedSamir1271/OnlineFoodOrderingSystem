@@ -23,7 +23,13 @@ namespace WebApplication7SE2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult addCategory([Bind(Include = "id,title,image_name,featured,active")] category category)
         {
-            throw new NotImplementedException();
+            if (ModelState.IsValid)
+            {
+                db.categories.Add(category);
+                db.SaveChanges();
+            }
+
+            return View(category);
         }
     }
 }
