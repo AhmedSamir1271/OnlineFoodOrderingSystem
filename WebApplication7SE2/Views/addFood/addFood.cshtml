@@ -1,0 +1,185 @@
+﻿@model WebApplication7SE2.Models.food
+
+@{
+    Layout = null;
+    ViewBag.Title = "addFood";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add Food</title>
+</head>
+<body>
+    <!-- Start Header Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#" style="font-size: 25px; color: #EC994B;">YumY</a>
+
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Home", "../adminHome/adminHome")
+                    </li>
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Foods", "../deleteFood/deleteFood")
+                    </li>
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Orders", "../deleteOrder/deleteOrder")
+                    </li>
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Categories", "../deleteCategory/deleteCategory")
+                    </li>
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Users", "../deleteUser/deleteUser")
+                    </li>
+                    <li class="nav-item" style="position:absolute; right: 3%;">
+                        <a class="nav-link" href="@Url.Action("LogOut", "adminLogin")">Logout</a>
+                    </li>
+                    <li class="nav-item" style="position:absolute; right: 7%;">
+                        <a class="nav-link" href="#">Hello @Session["adminName"].ToString()</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Header Navbar -->
+
+    <h2 class="title">Add Food</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.price, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.image_name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.image_name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.image_name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.category_id, "category_id", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("category_id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.category_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.featured, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.featured, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.featured, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.active, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.active, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.active, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="btn-div">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Add" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="fixed-bottom" style="padding: 20px;">
+        @Html.ActionLink("Back to Food List", "../deleteFood/deleteFood")
+    </div>
+    <link href="~/Scripts/bootstrap (1).css" rel="stylesheet" />
+    <link href="~/Scripts/bootstrap.min.css" rel="stylesheet" />
+</body>
+</html>
+
+<style>
+    body {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: center;
+        background-color: black;
+    }
+
+    .title {
+        font-size: 40px;
+        font-weight: bold;
+        color: #f2f2f2;
+        padding: 30px;
+    }
+
+    .form-horizontal {
+        text-align: center !important;
+        padding: 40px;
+    }
+
+    .form-group {
+        display: flex;
+        color: #f2f2f2;
+        font-size: 20px;
+        padding: 20px;
+    }
+
+    .form-control {
+        width: 300px
+    }
+
+    .btn-div {
+        position: relative;
+        left: 30%;
+        text-align: center;
+        padding: 20px;
+        width:50%;
+    }
+
+    .btn {
+        padding: 10px 30px;
+        background-color: #EC994B;
+        border: none;
+        color: #f2f2f2;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .navbar-brand {
+        padding-left: 30px;
+    }
+
+    .nav-item a {
+        text-decoration: none;
+        color: #f2f2f2;
+    }
+</style>

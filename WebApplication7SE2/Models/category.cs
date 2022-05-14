@@ -11,7 +11,8 @@ namespace WebApplication7SE2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +22,13 @@ namespace WebApplication7SE2.Models
         }
     
         public int id { get; set; }
+        [Display(Name = "Title")]
         public string title { get; set; }
+        [Display(Name = "Image Url")]
         public string image_name { get; set; }
+        [Display(Name = "Featured")]
         public string featured { get; set; }
+        [Display(Name = "Active")]
         public string active { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

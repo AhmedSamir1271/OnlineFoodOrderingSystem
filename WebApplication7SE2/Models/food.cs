@@ -11,16 +11,24 @@ namespace WebApplication7SE2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class food
     {
         public int id { get; set; }
+        [Display(Name = "Title")]
         public string title { get; set; }
+        [Display(Name = "Description")]
         public string description { get; set; }
+        [Display(Name = "Price")]
         public Nullable<decimal> price { get; set; }
+        [Display(Name = "Image Url")]
         public string image_name { get; set; }
+        [Display(Name = "Category")]
         public Nullable<int> category_id { get; set; }
+        [Display(Name = "Featured")]
         public string featured { get; set; }
+        [Display(Name = "Active")]
         public string active { get; set; }
     
         public virtual category category { get; set; }

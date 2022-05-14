@@ -1,0 +1,94 @@
+﻿@model List<WebApplication7SE2.Models.order>
+@{
+    Layout = null;
+    decimal TotalAmount = 0.00M;
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/userLogin/userLogin");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Order Cart</title>
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: black !important;
+        }
+
+        .navbar-brand {
+            padding-left: 30px;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Start Header Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#" style="font-size: 25px; color: #EC994B;">YumY</a>
+
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Home", "../userHome/userHome")
+                    </li>
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Foods", "../foodShopping/foodShopping")
+                    </li>
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Orders", "../foodShopping/OrderCart")
+                    </li>
+                    <li class="nav-item" style="position:absolute; right: 3%;">
+                        <a class="nav-link" href="@Url.Action("LogOut", "userLogin")">Logout</a>
+                    </li>
+                    <li class="nav-item" style="position:absolute; right: 7%;">
+                        <a class="nav-link" href="#">Hello @Session["userName"].ToString()</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Header Navbar -->
+
+    <table class="table-condensed">
+        @foreach (var order in Model)
+        {
+            TotalAmount += (decimal)order.total;
+            <tr>
+                <td>
+                    <img src="@Url.Content(order.image_name)" height="30px" width="30px" class="img-rounded" />
+                </td>
+                <td>
+                    @order.food
+                </td>
+                <td>
+                    @order.qty
+                </td>
+                <td>
+                    @order.price.00 EGP
+                </td>
+                <td>
+                    @order.total.00 EGP
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="4" style="text-align:right;">
+                <h3>Total Amount</h3>
+            </td>
+            <td style="text-align:right;">
+                <h3>@TotalAmount.ToString()</h3>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -16,7 +16,7 @@ namespace WebApplication7SE2
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "adminLogin", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

@@ -11,19 +11,32 @@ namespace WebApplication7SE2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class order
     {
         public int id { get; set; }
+        [Display(Name = "Food Name")]
         public string food { get; set; }
+        [Display(Name = "Price")]
         public Nullable<decimal> price { get; set; }
+        [Display(Name = "Quantity")]
         public Nullable<int> qty { get; set; }
+        [Display(Name = "Total Price")]
         public Nullable<decimal> total { get; set; }
+        [Display(Name = "Date")]
         public Nullable<System.DateTime> order_date { get; set; }
+        [Display(Name = "Status")]
         public string status { get; set; }
+        [Display(Name = "Image path")]
+        public string image_name { get; set; }
+        [Display(Name = "Customer Name")]
         public string customer_name { get; set; }
+        [Display(Name = "Customer Contact")]
         public string customer_contact { get; set; }
+        [Display(Name = "Customer Email")]
         public string customer_email { get; set; }
+        [Display(Name = "Customer Adress")]
         public string customer_address { get; set; }
     }
 }

@@ -49,6 +49,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -168,14 +170,72 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\addAdminController.cs" />
+    <Compile Include="Controllers\addCategoryController.cs" />
+    <Compile Include="Controllers\addFoodController.cs" />
+    <Compile Include="Controllers\addUserController.cs" />
+    <Compile Include="Controllers\adminHomeController.cs" />
+    <Compile Include="Controllers\adminLoginController.cs" />
+    <Compile Include="Controllers\deleteAdminController.cs" />
+    <Compile Include="Controllers\deleteCategoryController.cs" />
+    <Compile Include="Controllers\deleteFoodController.cs" />
+    <Compile Include="Controllers\deleteOrderController.cs" />
+    <Compile Include="Controllers\deleteUserController.cs" />
+    <Compile Include="Controllers\foodShoppingController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\userHomeController.cs" />
+    <Compile Include="Controllers\userLoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\admin.cs">
+      <DependentUpon>MainModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\category.cs">
+      <DependentUpon>MainModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\food.cs">
+      <DependentUpon>MainModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MainModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MainModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MainModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\order.cs">
+      <DependentUpon>MainModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user.cs">
+      <DependentUpon>userModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\userModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>userModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\userModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>userModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\userModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>userModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -214,8 +274,44 @@
     <Content Include="images\menu-pizza.jpg" />
     <Content Include="images\momo.jpg" />
     <Content Include="images\pizza.jpg" />
+    <Content Include="Models\MainModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MainModel.edmx</DependentUpon>
+      <LastGenOutput>MainModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MainModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MainModel.edmx</DependentUpon>
+      <LastGenOutput>MainModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\userModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>userModel.edmx</DependentUpon>
+      <LastGenOutput>userModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\userModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>userModel.edmx</DependentUpon>
+      <LastGenOutput>userModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap %281%29.css" />
     <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.css" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\MainModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MainModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MainModel.edmx.diagram">
+      <DependentUpon>MainModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\userModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>userModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\userModel.edmx.diagram">
+      <DependentUpon>userModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -238,9 +334,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -261,8 +354,25 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\addCategory\addCategory.cshtml" />
+    <Content Include="Views\addFood\addFood.cshtml" />
+    <Content Include="Views\deleteAdmin\deleteAdmin.cshtml" />
+    <Content Include="Views\deleteCategory\deleteCategory.cshtml" />
+    <Content Include="Views\deleteFood\deleteFood.cshtml" />
+    <Content Include="Views\adminLogin\adminLogin.cshtml" />
+    <Content Include="Views\userLogin\userLogin.cshtml" />
+    <Content Include="Views\adminHome\adminHome.cshtml" />
+    <Content Include="Views\userHome\userHome.cshtml" />
+    <Content Include="Views\addUser\addUser.cshtml" />
+    <Content Include="Views\addAdmin\addAdmin.cshtml" />
+    <Content Include="Views\deleteUser\deleteUser.cshtml" />
+    <Content Include="Views\foodShopping\foodShopping.cshtml" />
+    <Content Include="Views\foodShopping\OrderCart.cshtml" />
+    <Content Include="Views\deleteOrder\deleteOrder.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -275,6 +385,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\foods\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

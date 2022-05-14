@@ -13,19 +13,20 @@ namespace WebApplication7SE2.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class admin
+    public partial class user
     {
-        public int id { get; set; }
-        [Display(Name = "Full Name")]
+        public int Id { get; set; }
+        [Display(Name="Full Name")]
         public string full_name { get; set; }
         [Display(Name = "User Name")]
-        [Required(ErrorMessage ="This field is required.")]
+        [Required(ErrorMessage = "This field is required.")]
         public string user_name { get; set; }
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
-        [Required(ErrorMessage ="This field is required.")]
+        [Required(ErrorMessage = "This field is required.")]
         public string password { get; set; }
 
         public string LoginErrorMessage { get; set; }
     }
 }
+

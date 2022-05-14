@@ -1,0 +1,139 @@
+﻿@model WebApplication7SE2.Models.admin
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Login</title>
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: black !important;
+        }
+
+        .login-div {
+            color: #f2f2f2;
+            position: absolute;
+            left: 35%;
+            top: 30%;
+            padding: 10px 10px;
+            text-align: center;
+        }
+
+        #user_name-error,
+        #password-error,
+        #field-validation-error {
+            color: red;
+        }
+
+        .login-btn,
+        .clear-btn {
+            padding: 10px 20px;
+            background-color: #EC994B;
+            border: none;
+            color: #f2f2f2;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .text-box {
+            width: 80%;
+            height: 20px;
+        }
+
+        .navbar-brand {
+            padding-left: 30px;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Start Header Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#" style="font-size: 25px; color: #EC994B;">YumY</a>
+
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Home", "../adminHome/adminHome")
+                    </li>
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Foods", "../deleteFood/deleteFood")
+                    </li>
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Orders", "../deleteOrder/deleteOrder")
+                    </li>
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Categories", "../deleteCategory/deleteCategory")
+                    </li>
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Users", "../deleteUser/deleteUser")
+                    </li>
+                    <li class="nav-item" style="position:absolute; right: 9%;">
+                        <a class="nav-link" href="@Url.Action("adminLogin", "adminLogin")">Admin Login</a>
+                    </li>
+                    <li class="nav-item" style="position:absolute; right: 3%;">
+                        <a class="nav-link" href="@Url.Action("userLogin", "userLogin")">User Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Header Navbar -->
+
+    <div class="login-div">
+        @using (Html.BeginForm("Autherize", "adminLogin", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td></td>
+                    <td style="padding:15px; text-decoration: none; font-size: 40px; font-weight: bold;">Admin Login</td>
+                </tr>
+                <tr>
+                    <td style="color: #f2f2f2; font-size: 20px;">@Html.LabelFor(model => model.user_name)</td>
+                    <td style="padding: 10px;">@Html.EditorFor(model => model.user_name)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.user_name)</td>
+                </tr>
+                <tr>
+                    <td style="color: #f2f2f2; font-size: 20px;">@Html.LabelFor(model => model.password)</td>
+                    <td style="padding: 10px; ">@Html.EditorFor(model => model.password)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.password)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label id="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input class="login-btn" type="submit" name="name" value="Login" />
+                        <input class="clear-btn" type="reset" name="name" value="Clear" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <link href="~/Scripts/bootstrap (1).css" rel="stylesheet" />
+    <link href="~/Scripts/bootstrap.min.css" rel="stylesheet" />
+
+</body>
+</html>
