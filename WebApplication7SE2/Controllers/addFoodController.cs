@@ -24,7 +24,14 @@ namespace WebApplication7SE2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult addFood([Bind(Include = "id,title,description,price,image_name,category_id,featured,active")] food food)
         {
-            throw new NotImplementedException();
+            if (ModelState.IsValid)
+            {
+                db.foods.Add(food);
+                db.SaveChanges();
+            }
+
+            ViewBag.category_id = new SelectList(db.categories, "id", "title", food.category_id);
+            return View(food);
         }
     }
 }
