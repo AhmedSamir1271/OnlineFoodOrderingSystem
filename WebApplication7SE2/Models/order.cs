@@ -17,26 +17,21 @@ namespace WebApplication7SE2.Models
     {
         public int id { get; set; }
         [Display(Name = "Food Name")]
+        [Required(ErrorMessage = "This field is required.")]
         public string food { get; set; }
-        [Display(Name = "Price")]
+        [Display(Name = "Order Price")]
         public Nullable<decimal> price { get; set; }
-        [Display(Name = "Quantity")]
+        [Display(Name = "Order Quantity")]
+        [Required(ErrorMessage = "This field is required.")]
         public Nullable<int> qty { get; set; }
         [Display(Name = "Total Price")]
         public Nullable<decimal> total { get; set; }
-        [Display(Name = "Date")]
+        [Display(Name = "Order Date")]
+        [Required(ErrorMessage = "This field is required.")]
         public Nullable<System.DateTime> order_date { get; set; }
-        [Display(Name = "Status")]
-        public string status { get; set; }
-        [Display(Name = "Image path")]
+        [Display(Name = "Image Path")]
         public string image_name { get; set; }
-        [Display(Name = "Customer Name")]
-        public string customer_name { get; set; }
-        [Display(Name = "Customer Contact")]
-        public string customer_contact { get; set; }
-        [Display(Name = "Customer Email")]
-        public string customer_email { get; set; }
-        [Display(Name = "Customer Adress")]
-        public string customer_address { get; set; }
+        [Display(Name = "User Name")]
+        public string user_name { get; set; }
     }
 }

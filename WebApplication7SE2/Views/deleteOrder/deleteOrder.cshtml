@@ -58,9 +58,8 @@
         @foreach (var item in Model)
         {
         <tr style="position: relative; right: 25%;">
-            <td>Name: @item.food - </td> 
-            <td>Quantity: @item.qty - </td>
-            <td>Total Amount: @item.total</td>
+            <td>Name: @item.food - </td>
+            <td>Quantity: @item.qty </td>
             <td><a href="@Url.Action("deleteOrderConfirmed", "deleteOrder", new { id= item.id })">Delete</a></td>
         </tr>
         }

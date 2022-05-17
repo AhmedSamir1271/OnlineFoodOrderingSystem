@@ -172,6 +172,7 @@
     <Compile Include="Controllers\addAdminController.cs" />
     <Compile Include="Controllers\addCategoryController.cs" />
     <Compile Include="Controllers\addFoodController.cs" />
+    <Compile Include="Controllers\addOrderController.cs" />
     <Compile Include="Controllers\addUserController.cs" />
     <Compile Include="Controllers\adminHomeController.cs" />
     <Compile Include="Controllers\adminLoginController.cs" />
@@ -181,6 +182,7 @@
     <Compile Include="Controllers\deleteOrderController.cs" />
     <Compile Include="Controllers\deleteUserController.cs" />
     <Compile Include="Controllers\foodShoppingController.cs" />
+    <Compile Include="Controllers\orderListController.cs" />
     <Compile Include="Controllers\userHomeController.cs" />
     <Compile Include="Controllers\userLoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -347,8 +349,9 @@
     <Content Include="Views\addAdmin\addAdmin.cshtml" />
     <Content Include="Views\deleteUser\deleteUser.cshtml" />
     <Content Include="Views\foodShopping\foodShopping.cshtml" />
-    <Content Include="Views\foodShopping\OrderCart.cshtml" />
     <Content Include="Views\deleteOrder\deleteOrder.cshtml" />
+    <Content Include="Views\addOrder\addOrder.cshtml" />
+    <Content Include="Views\orderList\orderList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -366,7 +369,9 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\IFood\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

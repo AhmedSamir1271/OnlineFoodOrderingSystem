@@ -17,6 +17,7 @@ namespace WebApplication7SE2.Models
     {
         public int id { get; set; }
         [Display(Name = "Full Name")]
+        [Required(ErrorMessage = "This field is required.")]
         public string full_name { get; set; }
         [Display(Name = "User Name")]
         [Required(ErrorMessage = "This field is required.")]

@@ -29,30 +29,6 @@
             color: #f2f2f2;
         }
     </style>
-    <script type="text/javascript">
-        function AddToCart(item) {
-            var itemId = $(item).attr("itemid");
-            var formData = new FormData();
-            formData.append("ItemId", itemId);
-
-            $.ajax({
-                async: true,
-                method: 'POST',
-                contenctType: false,
-                processData: false,
-                data: formData,
-                url: '/foodShopping/foodCart',
-                success: function (data) {
-                    if (data.success) {
-                        $('#cartfood').text("Cart(" + data.Counter + ")");
-                    }
-                },
-                error: function () {
-                    alert("There is some problems");
-                }
-            })
-        }
-    </script>
 </head>
 <body>
 
@@ -70,15 +46,7 @@
                         @Html.ActionLink("Foods", "../foodShopping/foodShopping")
                     </li>
                     <li class="nav-item nav-link">
-                        @if (Session["CartCounter"] == null)
-                        {
-                            @Html.ActionLink("Order Cart", "foodShopping", "orderCart", new { id = "cartItem" })
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Order Cart(" + Session["CartCounter"] + ")", "foodShopping", "orderCart", new { id = "cartItem" })
-                        }
-                        @*<a class="nav-link" href="@Url.Action("orderCart", "orderCart")" id="cartfood">Order Cart</a>*@
+                        @Html.ActionLink("Make Order", "../addOrder/addOrder")
                     </li>
                     <li class="nav-item" style="position:absolute; right: 3%;">
                         <a class="nav-link" href="@Url.Action("LogOut", "userLogin")">Logout</a>
@@ -112,9 +80,6 @@
                     <div class="col-md-4" style="text-align:left;">
                         <b>@item.price.00 EGP</b>
                     </div>
-                </div>
-                <div class="col-md-4" style="text-align:right; margin-bottom: 10px; padding: 2px; position:relative; left:25%;">
-                    <input type="button" name="AddToCart" value="Add to Cart" class="btn btn-primary" itemid="@item.id" id="btnAddToCart" onclick="AddToCart(this.item)" />
                 </div>
             </div>
         }

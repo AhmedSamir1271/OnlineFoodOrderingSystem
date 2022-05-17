@@ -16,21 +16,24 @@ namespace WebApplication7SE2.Models
     public partial class food
     {
         public int id { get; set; }
-        [Display(Name = "Title")]
+        [Display(Name = "Food Name")]
+        [Required(ErrorMessage = "This field is required.")]
         public string title { get; set; }
-        [Display(Name = "Description")]
+        [Display(Name = "Food Description")]
+        [Required(ErrorMessage = "This field is required.")]
         public string description { get; set; }
-        [Display(Name = "Price")]
+        [Display(Name = "Food Price")]
+        [Required(ErrorMessage = "This field is required.")]
         public Nullable<decimal> price { get; set; }
-        [Display(Name = "Image Url")]
+        [Display(Name = "Image Path")]
+        [Required(ErrorMessage = "This field is required.")]
         public string image_name { get; set; }
-        [Display(Name = "Category")]
+        [Display(Name = "Category ID")]
+        [Required(ErrorMessage = "This field is required.")]
         public Nullable<int> category_id { get; set; }
-        [Display(Name = "Featured")]
         public string featured { get; set; }
-        [Display(Name = "Active")]
         public string active { get; set; }
-
+    
         public virtual category category { get; set; }
     }
 }

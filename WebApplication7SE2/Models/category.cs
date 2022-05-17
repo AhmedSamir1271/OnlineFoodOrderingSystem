@@ -20,17 +20,17 @@ namespace WebApplication7SE2.Models
         {
             this.foods = new HashSet<food>();
         }
-
+    
         public int id { get; set; }
-        [Display(Name = "Title")]
+        [Display(Name = "Category Name")]
+        [Required(ErrorMessage = "This field is required.")]
         public string title { get; set; }
-        [Display(Name = "Image Url")]
+        [Display(Name = "Image Path")]
+        [Required(ErrorMessage = "This field is required.")]
         public string image_name { get; set; }
-        [Display(Name = "Featured")]
         public string featured { get; set; }
-        [Display(Name = "Active")]
         public string active { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<food> foods { get; set; }
     }

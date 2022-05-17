@@ -1,7 +1,8 @@
 ﻿@model List<WebApplication7SE2.Models.order>
+
 @{
     Layout = null;
-    decimal TotalAmount = 0.00M;
+    ViewBag.Title = "orderList";
     if (Session["userID"] == null)
     {
         Response.Redirect("~/userLogin/userLogin");
@@ -13,22 +14,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Order Cart</title>
-    <style>
-        body {
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            background-color: black !important;
-        }
-
-        .navbar-brand {
-            padding-left: 30px;
-        }
-
-        .nav-item a {
-            text-decoration: none;
-            color: #f2f2f2;
-        }
-    </style>
+    <title>Orders</title>
 </head>
 <body>
     <!-- Start Header Navbar -->
@@ -45,7 +31,7 @@
                         @Html.ActionLink("Foods", "../foodShopping/foodShopping")
                     </li>
                     <li class="nav-item nav-link">
-                        @Html.ActionLink("Orders", "../foodShopping/OrderCart")
+                        @Html.ActionLink("Make Order", "../addOrder/addOrder")
                     </li>
                     <li class="nav-item" style="position:absolute; right: 3%;">
                         <a class="nav-link" href="@Url.Action("LogOut", "userLogin")">Logout</a>
@@ -59,36 +45,64 @@
     </nav>
     <!-- End Header Navbar -->
 
-    <table class="table-condensed">
-        @foreach (var order in Model)
+    <h2 class="title">Orders List</h2>
+
+    <table class="content">
+
+        @foreach (var item in Model)
         {
-            TotalAmount += (decimal)order.total;
-            <tr>
-                <td>
-                    <img src="@Url.Content(order.image_name)" height="30px" width="30px" class="img-rounded" />
-                </td>
-                <td>
-                    @order.food
-                </td>
-                <td>
-                    @order.qty
-                </td>
-                <td>
-                    @order.price.00 EGP
-                </td>
-                <td>
-                    @order.total.00 EGP
-                </td>
+            <tr style="position: relative; right: 25%;">
+                <td>Name: @item.food - </td>
+                <td>Quantity: @item.qty</td>
             </tr>
         }
-        <tr>
-            <td colspan="4" style="text-align:right;">
-                <h3>Total Amount</h3>
-            </td>
-            <td style="text-align:right;">
-                <h3>@TotalAmount.ToString()</h3>
-            </td>
-        </tr>
+
     </table>
+    <link href="~/Scripts/bootstrap (1).css" rel="stylesheet" />
+    <link href="~/Scripts/bootstrap.min.css" rel="stylesheet" />
 </body>
 </html>
+
+<style>
+    body {
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background-color: black !important;
+    }
+
+    .title {
+        font-size: 40px;
+        font-weight: bold;
+        color: #f2f2f2;
+        padding: 30px;
+    }
+
+    .content {
+        color: #f2f2f2;
+        font-size: 25px;
+        padding: 20px;
+        position: relative;
+        left: 43%;
+    }
+
+        .content tbody {
+            text-align: center;
+        }
+
+        .content tr {
+            padding-bottom: 10px;
+        }
+
+        .content a {
+            padding-left: 50px;
+        }
+
+    .navbar-brand {
+        padding-left: 30px;
+    }
+
+    .nav-item a {
+        text-decoration: none;
+        color: #f2f2f2;
+    }
+</style>
