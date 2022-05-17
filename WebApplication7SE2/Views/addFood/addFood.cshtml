@@ -3,6 +3,10 @@
 @{
     Layout = null;
     ViewBag.Title = "addFood";
+    if (Session["adminID"] == null)
+    {
+        Response.Redirect("~/adminLogin/adminLogin");
+    }
 }
 
 <!DOCTYPE html>

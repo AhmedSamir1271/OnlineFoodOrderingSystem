@@ -3,6 +3,10 @@
 @{
     Layout = null;
     ViewBag.Title = "addCategory";
+    if (Session["adminID"] == null)
+    {
+        Response.Redirect("~/adminLogin/adminLogin");
+    }
 }
 
 <!DOCTYPE html>
