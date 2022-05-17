@@ -23,7 +23,12 @@ namespace WebApplication7SE2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult addAdmin([Bind(Include = "id,full_name,user_name,password")] admin admin)
         {
-            throw new NotImplementedException();
+            if (ModelState.IsValid)
+            {
+                db.admins.Add(admin);
+                db.SaveChanges();
+            }
+            return View(admin);
         }
     }
 }
